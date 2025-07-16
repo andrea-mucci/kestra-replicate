@@ -27,8 +27,8 @@ java {
     targetCompatibility = targetJavaVersion
 }
 
-group = "io.kestra.plugin"
-description = 'Plugin template for Kestra'
+group = "io.clariteia.plugin.replicate"
+description = 'Replicate API Plugin for Kestra By Clariteia'
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"

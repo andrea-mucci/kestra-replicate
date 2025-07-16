@@ -1,4 +1,4 @@
-package io.kestra.plugin.templates;
+package io.clariteia.plugin.replicate;
 
 import io.kestra.core.junit.annotations.KestraTest;
 import io.kestra.core.models.property.Property;
@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.is;
  * parameters to your task and test the returning behaviour easily.
  */
 @KestraTest
-class ExampleTest {
+class ReplicateAPITest {
     @Inject
     private RunContextFactory runContextFactory;
 
@@ -27,11 +27,11 @@ class ExampleTest {
     void run() throws Exception {
         RunContext runContext = runContextFactory.of(Map.of("variable", "John Doe"));
 
-        Example task = Example.builder()
+        ReplicatePredictionTask task = ReplicatePredictionTask.builder()
             .format(new Property<>("Hello {{ variable }}"))
             .build();
 
-        Example.Output runOutput = task.run(runContext);
+        ReplicatePredictionTask.Output runOutput = task.run(runContext);
 
         assertThat(runOutput.getChild().getValue(), is(StringUtils.reverse("Hello John Doe")));
     }
